@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sejarah Muhammadiyah untuk Anak SD – Sejarah-Mu</title>
+  <style>
+    /* ===== VARIABEL WARNA ===== */
+    :root {
+      --primary:       #1a3a5c;   /* navy gelap */
+      --primary-dark:  #0f2236;   /* navy lebih gelap */
+      --primary-mid:   #1e4472;   /* navy tengah */
+      --primary-light: #2a5a9a;   /* navy terang */
+      --accent:        #f5c518;   /* kuning utama */
+      --accent-light:  #ffd740;   /* kuning terang */
+      --accent-muted:  #e8b800;   /* kuning redup */
+      --text-main:     #f5c518;   /* teks kuning */
+      --text-light:    #fff8dc;   /* teks kuning pucat */
+      --text-muted:    #b8cce0;   /* teks abu-biru */
+      --white:         #ffffff;
+      --card-bg:       rgba(26,58,92,0.85);
+      --sidebar-bg:    #0f2236;
+      --border:        rgba(245,197,24,0.25);
+      --radius:        12px;
+      --shadow:        0 4px 24px rgba(0,0,0,0.4);
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--primary-dark);
+      color: var(--text-light);
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--primary-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--accent-muted); border-radius: 4px; }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      border-bottom: 3px solid var(--accent);
+      padding: 0 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+    .site-header .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+    .site-header .logo span { color: var(--white); }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-family: 'Arial', sans-serif;
+      font-weight: 600;
+      padding: 6px 16px;
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+    .back-btn:hover { background: var(--accent); color: var(--primary-dark); }
+
+    /* ===== HERO BELAJAR ===== */
+    .belajar-hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-mid) 60%, var(--primary) 100%);
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .belajar-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(245,197,24,0.08) 0%, transparent 70%);
+    }
+    .belajar-hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      color: var(--accent);
+      margin-bottom: 1rem;
+      position: relative;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .belajar-hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--text-light);
+      font-size: 1.05rem;
+      position: relative;
+      opacity: 0.9;
+    }
+    .belajar-hero .badge-strip {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .badge {
+      background: rgba(245,197,24,0.15);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* ===== LAYOUT UTAMA ===== */
+    .page-layout {
+      display: flex;
+      min-height: calc(100vh - 64px);
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      width: 280px;
+      min-width: 280px;
+      background: var(--sidebar-bg);
+      border-right: 2px solid var(--border);
+      position: sticky;
+      top: 64px;
+      height: calc(100vh - 64px);
+      overflow-y: auto;
+      padding: 1.5rem 0;
+      flex-shrink: 0;
+    }
+    .sidebar-title {
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0 1.25rem 1rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0.5rem;
+    }
+    .bab-item { border-bottom: 1px solid rgba(245,197,24,0.1); }
+    .bab-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 0.85rem 1.25rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-light);
+      font-family: 'Georgia', serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: left;
+      transition: background 0.2s, color 0.2s;
+    }
+    .bab-btn:hover, .bab-btn.active {
+      background: rgba(245,197,24,0.12);
+      color: var(--accent);
+    }
+    .bab-btn .bab-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px; height: 26px;
+      background: var(--accent);
+      color: var(--primary-dark);
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .bab-btn .arrow {
+      font-size: 0.7rem;
+      transition: transform 0.25s;
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+    .bab-btn.open .arrow { transform: rotate(90deg); }
+    .subbab-list {
+      display: none;
+      padding: 0 0 0.5rem;
+    }
+    .subbab-list.open { display: block; }
+    .subbab-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.55rem 1.25rem 0.55rem 2rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      transition: color 0.2s, background 0.2s;
+      border-left: 3px solid transparent;
+    }
+    .subbab-link:hover {
+      color: var(--accent-light);
+      background: rgba(245,197,24,0.06);
+      border-left-color: var(--accent);
+    }
+    .subbab-link::before {
+      content: '›';
+      color: var(--accent);
+      font-size: 1rem;
+    }
+
+    /* ===== AREA KONTEN ===== */
+    .content-area {
+      flex: 1;
+      overflow-y: auto;
+      background: var(--primary-dark);
+    }
+
+    /* ===== BAB SECTION ===== */
+    .bab-section {
+      border-bottom: 3px solid var(--accent);
+    }
+    .bab-header {
+      background: linear-gradient(135deg, var(--primary-mid), var(--primary));
+      padding: 2.5rem 3rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .bab-label {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--primary-dark);
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+    .bab-header h2 {
+      font-size: clamp(1.4rem, 3vw, 2.1rem);
+      color: var(--accent);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .bab-desc {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.9;
+      opacity: 0.92;
+    }
+
+    /* ===== GAMBAR FULL BAB ===== */
+    .bab-img-full {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ===== SUBBAB ===== */
+    .subbab-section {
+      padding: 2.5rem 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .subbab-section:last-of-type { border-bottom: none; }
+    .subbab-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.4rem;
+    }
+    .subbab-num {
+      background: rgba(245,197,24,0.15);
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .subbab-section h3 {
+      font-size: 1.25rem;
+      color: var(--accent-light);
+      line-height: 1.3;
+    }
+    .materi-text {
+      color: var(--text-light);
+      font-size: 0.97rem;
+      line-height: 1.95;
+      margin-bottom: 1.5rem;
+    }
+    .materi-text p { margin-bottom: 1rem; }
+    .materi-text p:last-child { margin-bottom: 0; }
+    .materi-text ol, .materi-text ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .materi-text li { margin-bottom: 0.6rem; }
+    .materi-text strong { color: var(--accent); }
+
+    /* ===== GAMBAR MATERI (Card Style) ===== */
+    .img-full-wrapper {
+      margin: 2rem auto;
+      max-width: 680px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 2px var(--border);
+      background: var(--primary-mid);
+    }
+    .img-full-wrapper img {
+      width: 100%;
+      max-height: 380px;
+      object-fit: contain;
+      display: block;
+      background: var(--primary-mid);
+    }
+    .img-caption {
+      background: rgba(15,34,54,0.95);
+      text-align: center;
+      padding: 0.65rem 1rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ===== VIDEO ===== */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+      margin: 1.5rem 0;
+      border: 2px solid var(--border);
+    }
+    .video-wrapper iframe {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* ===== SECTION LABEL ===== */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 1.8rem 0 0.8rem;
+    }
+    .section-label .sl-icon {
+      font-size: 1.2rem;
+    }
+    .section-label h4 {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .sl-divider {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ===== QUIZ CARD ===== */
+    .quiz-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 1rem 0;
+    }
+    .quiz-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-muted) 100%);
+      color: var(--primary-dark);
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 25px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 12px rgba(245,197,24,0.35);
+    }
+    .quiz-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(245,197,24,0.5);
+    }
+    .quiz-btn .qicon { font-size: 1rem; }
+
+    /* ===== VIDEO + GAME ROW ===== */
+    .resource-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 1rem 0;
+    }
+    .res-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 25px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .res-btn:hover { transform: translateY(-2px); }
+    .res-btn.vid {
+      background: #cc0000;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(204,0,0,0.35);
+    }
+    .res-btn.vid:hover { box-shadow: 0 8px 20px rgba(204,0,0,0.5); }
+    .res-btn.game {
+      background: linear-gradient(135deg, #2a5a9a, #1a3a5c);
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      box-shadow: 0 4px 12px rgba(26,58,92,0.5);
+    }
+    .res-btn.game:hover { box-shadow: 0 8px 20px rgba(245,197,24,0.3); }
+
+    /* ===== SIDEBAR TOGGLE MOBILE ===== */
+    .mobile-sidebar-toggle {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 999;
+      background: var(--accent);
+      color: var(--primary-dark);
+      border: none;
+      border-radius: 50%;
+      width: 52px; height: 52px;
+      font-size: 1.4rem;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(245,197,24,0.5);
+    }
+
+    /* ===== SIDEBAR OVERLAY MOBILE ===== */
+    .sidebar-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 500;
+    }
+    .sidebar-overlay.open { display: block; }
+
+    /* ===== PROGRESS BAR ===== */
+    .progress-bar {
+      position: fixed;
+      top: 64px; left: 0;
+      height: 3px;
+      background: var(--accent);
+      z-index: 999;
+      transition: width 0.1s;
+      width: 0%;
+    }
+
+    /* ===== FOOTER ===== */
+    .belajar-footer {
+      background: var(--sidebar-bg);
+      border-top: 2px solid var(--border);
+      padding: 1.5rem 3rem;
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .belajar-footer span { color: var(--accent); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .sidebar {
+        position: fixed;
+        top: 64px; left: -300px;
+        height: calc(100vh - 64px);
+        z-index: 600;
+        transition: left 0.3s;
+        width: 280px;
+      }
+      .sidebar.open { left: 0; }
+      .mobile-sidebar-toggle { display: flex; align-items: center; justify-content: center; }
+      .subbab-section { padding: 2rem 1.5rem; }
+      .bab-header { padding: 2rem 1.5rem; }
+      .img-full-wrapper {
+        margin: 1.5rem auto;
+        max-width: 100%;
+      }
+      .belajar-footer { padding: 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .belajar-hero { padding: 2rem 1rem 1.5rem; }
+      .site-header { padding: 0 1rem; }
+      .site-header .logo { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== PROGRESS BAR ===== -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <a href="index.html" class="logo">Sejarah<span>-Mu</span></a>
+  <a href="index.html" class="back-btn">← Kembali ke Beranda</a>
+</header>
+
+<!-- ===== HERO BELAJAR ===== -->
+<div class="belajar-hero">
+  <h1>📚 Sejarah Muhammadiyah untuk Anak SD</h1>
+  <p>Pelajari sejarah Muhammadiyah sejak berdiri pada 1912 dengan cara yang seru dan mudah dipahami. Temukan cerita, gambar, dan kuis interaktif untuk membuat belajar sejarah lebih menyenangkan.</p>
+  <div class="badge-strip">
+    <span class="badge">📖 4 Bab</span>
+    <span class="badge">🎯 Kelas SD 4–6</span>
+    <span class="badge">🎮 Kuis Interaktif</span>
+    <span class="badge">▶️ Video Materi</span>
+  </div>
+</div>
+
+<!-- ===== SIDEBAR OVERLAY (MOBILE) ===== -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+<!-- ===== LAYOUT UTAMA ===== -->
+<div class="page-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-title">📋 Daftar Materi</div>
+
+    <!-- BAB 1 -->
+    <div class="bab-item">
+      <button class="bab-btn open active" onclick="toggleBab(this)" data-target="sub1">
+        <span class="bab-num">1</span>
+        <span style="flex:1">Sejarah Muhammadiyah</span>
+        <span class="arrow open">▶</span>
+      </button>
+      <div class="subbab-list open" id="sub1">
+        <a href="#bab1" class="subbab-link">Pengantar Bab 1</a>
+        <a href="#sub1-1" class="subbab-link">1.1 Latar Belakang</a>
+        <a href="#sub1-2" class="subbab-link">1.2 Arti Muhammadiyah</a>
+        <a href="#sub1-3" class="subbab-link">1.3 Tujuan Muhammadiyah</a>
+      </div>
+    </div>
+
+    <!-- BAB 2 -->
+    <div class="bab-item">
+      <button class="bab-btn" onclick="toggleBab(this)" data-target="sub2">
+        <span class="bab-num">2</span>
+        <span style="flex:1">Lambang Muhammadiyah</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="subbab-list" id="sub2">
+        <a href="#bab2" class="subbab-link">Pengantar Bab 2</a>
+        <a href="#sub2-1" class="subbab-link">2.1 Matahari</a>
+        <a href="#sub2-2" class="subbab-link">2.2 Bulan dan Bintang</a>
+        <a href="#sub2-3" class="subbab-link">2.3 Tulisan Arab</a>
+        <a href="#sub2-4" class="subbab-link">2.4 Dua Kalimat Syahadat</a>
+        <a href="#sub2-5" class="subbab-link">2.5 Warna Hijau</a>
+        <a href="#sub2-6" class="subbab-link">2.6 Warna Putih</a>
+      </div>
+    </div>
+
+    <!-- BAB 3 -->
+    <div class="bab-item">
+      <button class="bab-btn" onclick="toggleBab(this)" data-target="sub3">
+        <span class="bab-num">3</span>
+        <span style="flex:1">Organisasi Muhammadiyah</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="subbab-list" id="sub3">
+        <a href="#bab3" class="subbab-link">Pengantar Bab 3</a>
+        <a href="#sub3-1" class="subbab-link">3.1 Hizbul Wathan</a>
+        <a href="#sub3-2" class="subbab-link">3.2 Tapak Suci</a>
+      </div>
+    </div>
+
+    <!-- BAB 4 -->
+    <div class="bab-item">
+      <button class="bab-btn" onclick="toggleBab(this)" data-target="sub4">
+        <span class="bab-num">4</span>
+        <span style="flex:1">Pahlawan Muhammadiyah</span>
+        <span class="arrow">▶</span>
+      </button>
+      <div class="subbab-list" id="sub4">
+        <a href="#bab4" class="subbab-link">Pengantar Bab 4</a>
+        <a href="#sub4-1" class="subbab-link">4.1 K.H. Ahmad Dahlan</a>
+        <a href="#sub4-2" class="subbab-link">4.2 Siti Walidah</a>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- AREA KONTEN UTAMA -->
+  <main class="content-area" id="contentArea">
+
+    <!-- ===================== BAB 1 ===================== -->
+    <section class="bab-section" id="bab1">
+      <div class="bab-header">
+        <div class="bab-label">BAB 1</div>
+        <h2>Sejarah Muhammadiyah</h2>
+        <p class="bab-desc">
+          Muhammadiyah didirikan oleh K.H. Ahmad Dahlan pada tanggal 18 November 1912 di Kauman, Yogyakarta. Organisasi ini lahir sebagai respons terhadap kebutuhan mendesak masyarakat Muslim pada awal abad ke-20 yang menghadapi tantangan besar dalam bidang pendidikan dan pemahaman agama. Pada masa itu, banyak umat Islam di Indonesia belum memperoleh akses pendidikan yang memadai sehingga pengetahuan agama yang dimiliki seringkali belum mencerminkan ajaran Islam yang murni, rasional, dan sesuai dengan tuntunan Al-Qur'an dan As-Sunnah. Kondisi sosial dan budaya yang masih dipengaruhi oleh praktik bid'ah, takhayul, dan mistik mendorong lahirnya gerakan reformasi Islam yang menekankan pembaruan dan kemurnian ajaran agama.
+          <br><br>
+          Muhammadiyah hadir sebagai gerakan tajdid atau pembaruan Islam dengan tujuan mengembalikan praktik keagamaan kepada prinsip-prinsip dasar Al-Qur'an dan Hadis. Selain itu, organisasi ini menekankan pentingnya pendidikan yang berkualitas sebagai sarana utama untuk membangun masyarakat yang berakhlak mulia dan cerdas. Melalui pendidikan, Muhammadiyah berupaya membekali generasi muda dengan kemampuan intelektual dan spiritual yang seimbang sehingga mereka dapat menghadapi perubahan zaman dengan bijak dan berkontribusi positif bagi bangsa dan negara.
+          <br><br>
+          Fokus utama Muhammadiyah mencakup penyebaran ilmu, pengembangan pendidikan, dan kegiatan sosial. Dalam bidang pendidikan, Muhammadiyah mendirikan sekolah, madrasah, dan lembaga pendidikan lain yang memadukan ilmu agama dan pengetahuan umum. Dalam aspek sosial, organisasi ini menyalurkan bantuan kepada masyarakat kurang mampu, mengembangkan panti asuhan, rumah sakit, dan kegiatan amal lainnya. Semua upaya ini bertujuan untuk menciptakan masyarakat yang sejahtera secara material maupun spiritual, dengan tetap menanamkan nilai-nilai Islam yang universal.
+          <br><br>
+          Selain itu, Muhammadiyah juga mengedepankan metode dakwah yang modern dan kontekstual. Setiap kegiatan pendidikan dan sosial dirancang agar tidak hanya sekadar mengajarkan teori tetapi juga menanamkan praktik nilai-nilai Islam dalam kehidupan sehari-hari. Dengan demikian, anggota dan masyarakat yang terlibat dapat memahami agama secara komprehensif dan mengimplementasikannya dalam perilaku nyata.
+          <br><br>
+          Secara keseluruhan, lahirnya Muhammadiyah menandai awal gerakan Islam modern di Indonesia yang menggabungkan reformasi agama, pendidikan berkualitas, dan pengembangan sosial. Sejarah pendirian ini menjadi fondasi bagi berkembangnya organisasi yang kini menjadi salah satu gerakan Islam terbesar dan paling berpengaruh di Indonesia yang terus berkontribusi pada pembentukan karakter, intelektualitas, dan kesejahteraan umat.
+        </p>
+      </div>
+      <!-- Gambar Bab 1 Full Width -->
+      <div class="img-full-wrapper">
+        <img src="https://i.ibb.co.com/yFN3C0k3/Chat-GPT-Image-May-29-2026-04-57-24-PM.png" alt="Sejarah Muhammadiyah" onerror="this.style.background='#1e4472';this.style.minHeight='200px';this.alt='Gambar Belum Tersedia'">
+        <div class="img-caption">Ilustrasi Sejarah Muhammadiyah</div>
+      </div>
+
+      <!-- SUBBAB 1.1 -->
+      <div class="subbab-section" id="sub1-1">
+        <div class="subbab-header">
+          <span class="subbab-num">Subbab 1.1</span>
+          <h3>Latar Belakang Berdirinya Muhammadiyah</h3>
+        </div>
+        <div class="materi-text">
+          <p>Pada awal abad ke-20, masyarakat Islam di Indonesia menghadapi tantangan besar dalam bidang pendidikan, sosial, dan pemahaman agama. Banyak umat Islam yang belum mendapatkan akses pendidikan yang memadai sehingga pengetahuan agama yang dimiliki sering kali belum mencerminkan ajaran Islam yang murni, rasional, dan sesuai konteks kehidupan sehari-hari. Selain itu, praktik keagamaan pada masa itu masih tercampur dengan bid'ah, takhayul, dan mistik sehingga banyak umat yang memerlukan bimbingan untuk memahami ajaran Islam secara benar.</p>
+          <p>K.H. Ahmad Dahlan melihat kondisi ini dan merasa perlu adanya gerakan pembaruan (tajdid) dalam Islam. Ia menekankan pentingnya pendidikan sebagai sarana utama untuk memajukan masyarakat, bukan hanya secara intelektual tetapi juga moral dan sosial. Berdasarkan pemikiran ini, K.H. Ahmad Dahlan mendirikan Muhammadiyah pada 18 November 1912 di Kauman, Yogyakarta. Muhammadiyah hadir sebagai gerakan tajdid yang kembali kepada Al-Qur'an dan As-Sunnah, dengan tujuan membantu umat Islam memahami agama secara benar dan rasional, serta mengaplikasikannya dalam kehidupan sehari-hari.</p>
+          <p>Selain pendidikan, Muhammadiyah juga menekankan kegiatan sosial, seperti kesehatan, kemanusiaan, dan pemberdayaan masyarakat, sehingga gerakan ini tidak hanya bersifat keagamaan tetapi juga bersifat sosial dan pendidikan.</p>
+        </div>
+        <!-- Gambar Materi Full Width -->
+        <div class="img-full-wrapper">
+          <img src="https://i.ibb.co.com/NdDTBBDJ/Chat-GPT-Image-May-29-2026-04-44-11-PM.png" alt="Latar Belakang Berdirinya Muhammadiyah" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+          <div class="img-caption">Latar Belakang Berdirinya Muhammadiyah</div>
+        </div>
+        <!-- Quiz -->
+        <div class="section-label">
+          <span class="sl-icon">📝</span>
+          <h4>Uji Pemahamanmu</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="quiz-row">
+          <a href="https://forms.gle/qurwTJQmZAYGEz9P6" target="_blank" class="quiz-btn">
+            <span class="qicon">📝</span> Kuis Latar Belakang Muhammadiyah
+          </a>
+        </div>
+      </div>
+
+      <!-- SUBBAB 1.2 -->
+      <div class="subbab-section" id="sub1-2">
+        <div class="subbab-header">
+          <span class="subbab-num">Subbab 1.2</span>
+          <h3>Arti Muhammadiyah</h3>
+        </div>
+        <div class="materi-text">
+          <p>Nama "Muhammadiyah" berasal dari kata <strong>Muhammad</strong>, yang merujuk pada Nabi Muhammad SAW, dan imbuhan <strong>"-iyah"</strong> yang menunjukkan sebuah gerakan atau organisasi. Dengan demikian, Muhammadiyah bukan sekadar organisasi biasa, melainkan gerakan yang bertujuan meneladani akhlak Nabi Muhammad SAW dan mengamalkan ajaran-Nya secara nyata dalam kehidupan sehari-hari. Nama ini mencerminkan identitas dan misi utama organisasi, yaitu mengembalikan umat Islam pada ajaran Al-Qur'an dan Sunnah yang murni, serta menegakkan nilai-nilai kebaikan, keadilan, dan kepedulian sosial.</p>
+          <p>Muhammadiyah menekankan pendidikan dan pembelajaran sebagai sarana utama untuk menyebarkan ilmu yang bermanfaat. Organisasi ini berupaya membentuk generasi Muslim yang cerdas, terampil, dan berakhlak mulia, sehingga mereka mampu menghadapi tantangan zaman dengan bijak. Pendidikan yang dikembangkan Muhammadiyah tidak hanya bersifat formal, tetapi juga menyentuh aspek moral, spiritual, dan sosial. Melalui sekolah, madrasah, dan lembaga pendidikan lainnya, anggota dan masyarakat diajarkan untuk memahami ajaran agama secara mendalam, kritis, dan rasional, bukan sekadar hafalan atau formalitas semata.</p>
+          <p>Selain pendidikan, Muhammadiyah juga mendorong penerapan ajaran Islam melalui amal sosial dan dakwah yang rasional. Kegiatan ini mencakup pemberdayaan masyarakat, pelayanan kesehatan, pendidikan anak-anak kurang mampu, serta pengembangan program sosial yang nyata dan berdampak langsung. Dengan cara ini, pengetahuan agama tidak berhenti pada teori, tetapi diterapkan dalam kehidupan sehari-hari untuk meningkatkan kualitas hidup dan kesejahteraan masyarakat.</p>
+          <p>Pendekatan Muhammadiyah yang menggabungkan ilmu, iman, dan amal bertujuan mencetak umat yang seimbang secara intelektual dan spiritual, mampu berpikir kritis, bertindak bijaksana, dan berkontribusi positif bagi bangsa dan negara. Gerakan ini juga menanamkan nilai kepemimpinan, tanggung jawab sosial, serta kesadaran untuk selalu berbuat baik bagi sesama. Dengan demikian, arti nama Muhammadiyah bukan hanya sebagai identitas organisasi, tetapi juga sebagai panduan hidup dan prinsip gerakan yang memadukan pendidikan, moralitas, dan aksi nyata dalam masyarakat.</p>
+        </div>
+        <!-- Gambar Materi Full Width -->
+        <div class="img-full-wrapper">
+          <img src="https://i.ibb.co.com/j9MCH83k/Chat-GPT-Image-May-29-2026-04-48-05-PM.png" alt="Arti Muhammadiyah" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+          <div class="img-caption">Arti Muhammadiyah</div>
+        </div>
+        <!-- Quiz -->
+        <div class="section-label">
+          <span class="sl-icon">📝</span>
+          <h4>Uji Pemahamanmu</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="quiz-row">
+          <a href="https://forms.gle/3JJHCid7J2zp1bhq8" target="_blank" class="quiz-btn">
+            <span class="qicon">📝</span> Kuis Arti Muhammadiyah
+          </a>
+        </div>
+      </div>
+
+      <!-- SUBBAB 1.3 -->
+      <div class="subbab-section" id="sub1-3">
+        <div class="subbab-header">
+          <span class="subbab-num">Subbab 1.3</span>
+          <h3>Tujuan Muhammadiyah</h3>
+        </div>
+        <div class="materi-text">
+          <p>Secara umum, Muhammadiyah bertujuan membangun masyarakat Islam yang berpendidikan, berakhlak mulia, dan peduli terhadap sesama. Tujuan khususnya meliputi:</p>
+          <ol>
+            <li><strong>Mendidik anak-anak dan generasi muda</strong><br>
+            Muhammadiyah mendirikan sekolah, madrasah, dan lembaga pendidikan lainnya. Anak-anak diajarkan untuk memahami ajaran Islam dengan benar, menumbuhkan akhlak mulia, dan menjadi generasi cerdas serta bertanggung jawab. Pendidikan ini juga menanamkan disiplin, moral, dan karakter yang kuat agar siap menghadapi tantangan masa depan.</li>
+            <li><strong>Membantu masyarakat yang kurang mampu</strong><br>
+            Kegiatan sosial seperti pemberian santunan anak yatim, bantuan untuk fakir miskin, dan pelayanan kesehatan menjadi fokus Muhammadiyah. Hal ini menunjukkan bahwa pendidikan dan keimanan harus diiringi dengan kepedulian sosial.</li>
+            <li><strong>Menyebarkan ajaran Islam yang baik dan rasional</strong><br>
+            Dakwah Muhammadiyah selalu berbasis Al-Qur'an dan As-Sunnah, mengedepankan akal sehat, serta bebas dari praktik takhayul atau bid'ah. Anggota dan masyarakat diajak untuk mengamalkan ajaran Islam dalam kehidupan sehari-hari sehingga tercipta masyarakat beriman, berakhlak mulia, dan beradab.</li>
+            <li><strong>Meningkatkan kualitas hidup masyarakat</strong><br>
+            Muhammadiyah juga menekankan pemberdayaan masyarakat melalui pendidikan orang dewasa, pengembangan ekonomi, budaya, dan kesehatan. Dengan begitu, masyarakat tidak hanya cerdas secara spiritual tetapi juga produktif dan mandiri.</li>
+            <li><strong>Menjadi teladan perubahan sosial</strong><br>
+            Gerakan Muhammadiyah menunjukkan bahwa pendidikan dan agama bisa bersinergi untuk membentuk masyarakat sejahtera, berakhlak, dan berpengetahuan. Nilai ini menjadi fondasi agar setiap kegiatan pendidikan, sosial, dan dakwah selalu berorientasi pada kemaslahatan umat.</li>
+          </ol>
+          <p>Dengan tujuan-tujuan tersebut, Muhammadiyah bukan hanya sekadar organisasi keagamaan, tetapi juga gerakan sosial dan pendidikan yang bertujuan membentuk masyarakat yang cerdas, berakhlak, dan sejahtera.</p>
+        </div>
+        <!-- Gambar Materi Full Width -->
+        <div class="img-full-wrapper">
+          <img src="https://i.ibb.co.com/LXjHf2N6/images-2.jpg" alt="Tujuan Muhammadiyah" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+          <div class="img-caption">Tujuan Muhammadiyah</div>
+        </div>
+        <!-- Quiz + Video + Game -->
+        <div class="section-label">
+          <span class="sl-icon">📝</span>
+          <h4>Uji Pemahamanmu</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="quiz-row">
+          <a href="https://forms.gle/oKDzm1mY5xJQEHfY9" target="_blank" class="quiz-btn">
+            <span class="qicon">📝</span> Kuis Tujuan Muhammadiyah
+          </a>
+        </div>
+        <!-- Video dan Game di samping Quiz -->
+        <div class="section-label" style="margin-top:1.5rem">
+          <span class="sl-icon">▶️</span>
+          <h4>Video & Game</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="resource-row">
+          <a href="https://youtube.com/shorts/pDNwy13_KSg?feature=share" target="_blank" class="res-btn vid">
+            ▶️ Video Sejarah Muhammadiyah
+          </a>
+          <a href="https://gemini.google.com/share/b84c91531584" target="_blank" class="res-btn game">
+            🎮 Main Game Sejarah
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BAB 2 ===================== -->
+    <section class="bab-section" id="bab2">
+      <div class="bab-header">
+        <div class="bab-label">BAB 2</div>
+        <h2>Lambang Muhammadiyah</h2>
+        <p class="bab-desc">
+          Lambang Muhammadiyah memiliki makna yang mendalam terdiri dari matahari, tulisan Arab, dua kalimat syahadat, dan warna hijau-putih. Matahari melambangkan cahaya ilmu dan petunjuk kebaikan, bulan dan bintang melambangkan petunjuk dan kesucian hati, sementara tulisan Arab menegaskan identitas Islam Muhammadiyah. Dua kalimat syahadat menunjukkan pondasi iman seorang Muslim. Warna hijau melambangkan pertumbuhan dan kesejahteraan sedangkan putih menunjukkan kesucian dan kebenaran. Semua simbol ini dirancang untuk mengingatkan anggota Muhammadiyah agar selalu berpedoman pada ilmu dan iman dalam setiap kegiatan.
+        </p>
+      </div>
+      <!-- Gambar Bab 2 Full Width -->
+      <div class="img-full-wrapper">
+        <img src="https://i.ibb.co.com/4Rjd4y0V/Chat-GPT-Image-May-30-2026-09-11-35-PM.png" alt="Lambang Muhammadiyah" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+        <div class="img-caption">Lambang Muhammadiyah</div>
+      </div>
+
+      <!-- SUBBAB 2.1 -->
+      <div class="subbab-section" id="sub2-1">
+        <div class="subbab-header">
+          <span class="subbab-num">Subbab 2.1</span>
+          <h3>Matahari</h3>
+        </div>
+        <div class="materi-text">
+          <p>Matahari dalam lambang Muhammadiyah melambangkan <strong>cahaya ilmu dan petunjuk kebaikan</strong>. Cahaya matahari di sini bukan sekadar simbol visual, tetapi menggambarkan bagaimana ilmu pengetahuan dapat menerangi kegelapan ketidaktahuan. Dalam filosofi Muhammadiyah, pendidikan menjadi sumber penerangan bagi masyarakat agar dapat berpikir kritis, memahami ajaran agama dengan benar, dan mengambil keputusan yang bijak. Matahari juga mengingatkan bahwa setiap anggota Muhammadiyah memiliki tanggung jawab untuk menyebarkan ilmu yang bermanfaat dan mengaplikasikannya dalam kehidupan sehari-hari, baik dalam keluarga, sekolah, maupun masyarakat luas.</p>
+          <p>Melalui simbol ini, Muhammadiyah menekankan bahwa ilmu dan iman harus berjalan seiring. Pendidikan bukan hanya untuk kepentingan pribadi, tetapi juga untuk membangun masyarakat yang adil, sejahtera, dan berdaya. Oleh karena itu, anggota diingatkan untuk menjadi "cahaya" bagi lingkungan mereka melalui pengetahuan, akhlak, dan kontribusi sosial.</p>
+        </div>
+        <!-- Gambar Full Width -->
+        <div class="img-full-wrapper">
+          <img src="https://i.ibb.co.com/gF4wsDm0/Chat-GPT-Image-May-30-2026-09-21-50-PM.png" alt="Matahari dalam Lambang Muhammadiyah" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+          <div class="img-caption">Makna Matahari dalam Lambang Muhammadiyah</div>
+        </div>
+        <!-- Quiz + Video -->
+        <div class="section-label">
+          <span class="sl-icon">📝</span>
+          <h4>Uji Pemahamanmu</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="quiz-row">
+          <a href="https://forms.gle/YyVvohAzPugrmL1b6" target="_blank" class="quiz-btn">
+            <span class="qicon">📝</span> Kuis Matahari
+          </a>
+        </div>
+        <div class="section-label" style="margin-top:1.2rem">
+          <span class="sl-icon">▶️</span>
+          <h4>Video Materi</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="resource-row">
+          <a href="https://youtube.com/shorts/0D5uNl9V45k?feature=share" target="_blank" class="res-btn vid">
+            ▶️ Video Matahari
+          </a>
+        </div>
+      </div>
+
+      <!-- SUBBAB 2.2 -->
+      <div class="subbab-section" id="sub2-2">
+        <div class="subbab-header">
+          <span class="subbab-num">Subbab 2.2</span>
+          <h3>Bulan dan Bintang</h3>
+        </div>
+        <div class="materi-text">
+          <p>Bulan dan bintang melambangkan <strong>cahaya petunjuk dan kesucian hati</strong>. Bulan yang bersinar di malam hari mengingatkan umat Islam untuk selalu mencari petunjuk dan menjalankan kehidupan sesuai prinsip agama, meskipun menghadapi tantangan atau situasi gelap. Bintang menambah makna kesucian, harapan, dan arah hidup yang benar. Bersama-sama, keduanya menjadi simbol bahwa setiap anggota Muhammadiyah harus menjaga hati tetap bersih, ikhlas, dan konsisten dalam menjalankan aktivitas pendidikan, dakwah, dan sosial.</p>
+          <p>Secara praktis, simbol bulan dan bintang juga mengajarkan anggota untuk menjadi teladan moral, bertindak berdasarkan prinsip kebenaran, dan membimbing orang lain tanpa pamrih. Dalam konteks pendidikan, simbol ini menekankan pentingnya integritas, kejujuran, dan keteladanan guru maupun murid.</p>
+        </div>
+        <!-- Gambar Full Width -->
+        <div class="img-full-wrapper">
+          <img src="https://i.ibb.co.com/7dfsgVHN/Chat-GPT-Image-May-30-2026-09-25-16-PM.png" alt="Bulan dan Bintang dalam Lambang Muhammadiyah" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+          <div class="img-caption">Makna Bulan dan Bintang dalam Lambang Muhammadiyah</div>
+        </div>
+        <!-- Quiz + Video -->
+        <div class="section-label">
+          <span class="sl-icon">📝</span>
+          <h4>Uji Pemahamanmu</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="quiz-row">
+          <a href="https://forms.gle/YfoLtmyejA76hxug7" target="_blank" class="quiz-btn">
+            <span class="qicon">📝</span> Kuis Bulan dan Bintang
+          </a>
+        </div>
+        <div class="section-label" style="margin-top:1.2rem">
+          <span class="sl-icon">▶️</span>
+          <h4>Video Materi</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="resource-row">
+          <a href="https://youtube.com/shorts/4xFdBBU7q6M?feature=share" target="_blank" class="res-btn vid">
+            ▶️ Video Bulan dan Bintang
+          </a>
+        </div>
+      </div>
+
+      <!-- SUBBAB 2.3 -->
+      <div class="subbab-section" id="sub2-3">
+        <div class="subbab-header">
+          <span class="subbab-num">Subbab 2.3</span>
+          <h3>Tulisan Arab Muhammadiyah</h3>
+        </div>
+        <div class="materi-text">
+          <p>Tulisan Arab dalam lambang menunjukkan <strong>identitas Islam Muhammadiyah</strong>. Tulisan ini menegaskan bahwa gerakan Muhammadiyah berlandaskan pada Al-Qur'an dan As-Sunnah, serta berupaya menjaga keaslian ajaran Islam dari penyimpangan atau praktik yang tidak sesuai syariah. Identitas ini juga menjadi pengakuan terhadap warisan budaya dan agama yang menjadi dasar gerakan.</p>
+          <p>Dalam konteks pendidikan dan dakwah, tulisan Arab mengingatkan anggota bahwa setiap kegiatan baik sosial, pendidikan, maupun ibadah harus selalu mengacu pada nilai-nilai Islam. Anggota diajarkan untuk menghormati tradisi keilmuan Islam, memahami teks agama dengan rasional, dan menerapkannya secara relevan di masyarakat modern.</p>
+        </div>
+        <!-- Gambar Full Width -->
+        <div class="img-full-wrapper">
+          <img src="https://i.ibb.co.com/gLGc6DcN/Chat-GPT-Image-May-30-2026-09-29-00-PM.png" alt="Tulisan Arab dalam Lambang Muhammadiyah" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+          <div class="img-caption">Tulisan Arab dalam Lambang Muhammadiyah</div>
+        </div>
+        <!-- Quiz + Video Bentuk Lingkaran -->
+        <div class="section-label">
+          <span class="sl-icon">📝</span>
+          <h4>Uji Pemahamanmu</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="quiz-row">
+          <a href="https://forms.gle/ubyekGknkyyh1xeE6" target="_blank" class="quiz-btn">
+            <span class="qicon">📝</span> Kuis Tulisan Arab & Dua Kalimat Syahadat
+          </a>
+          <a href="https://forms.gle/sYJtct92HEJkgQPt9" target="_blank" class="quiz-btn">
+            <span class="qicon">📝</span> Kuis Makna Tulisan Muhammadiyah
+          </a>
+        </div>
+        <div class="section-label" style="margin-top:1.2rem">
+          <span class="sl-icon">▶️</span>
+          <h4>Video Materi</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="resource-row">
+          <a href="https://youtube.com/shorts/aCkXdcOpSw4?feature=share" target="_blank" class="res-btn vid">
+            ▶️ Video Bentuk Lingkaran Muhammadiyah
+          </a>
+        </div>
+      </div>
+
+      <!-- SUBBAB 2.4 -->
+      <div class="subbab-section" id="sub2-4">
+        <div class="subbab-header">
+          <span class="subbab-num">Subbab 2.4</span>
+          <h3>Dua Kalimat Syahadat</h3>
+        </div>
+        <div class="materi-text">
+          <p>Dua kalimat syahadat menegaskan <strong>iman seorang Muslim</strong> dan menjadi pondasi utama seluruh aktivitas Muhammadiyah. Kalimat ini mengingatkan bahwa keimanan adalah dasar moral bagi setiap individu, sehingga pendidikan, dakwah, dan amal sosial harus berlandaskan iman dan ketaqwaan kepada Allah SWT.</p>
+          <p>Simbol ini juga menekankan bahwa keimanan bukan hanya pengakuan lisan, tetapi diwujudkan melalui tindakan nyata: menuntut ilmu, mengajar, berdakwah, dan mengabdi kepada masyarakat. Dalam pendidikan Muhammadiyah, nilai syahadat diterjemahkan sebagai landasan karakter yang menuntun siswa menjadi pribadi bertanggung jawab dan bermoral tinggi.</p>
+        </div>
+        <!-- Gambar Full Width -->
+        <div class="img-full-wrapper">
+          <img src="https://i.ibb.co.com/xtNRYt2f/Chat-GPT-Image-May-30-2026-09-32-07-PM.png" alt="Dua Kalimat Syahadat dalam Lambang Muhammadiyah" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+          <div class="img-caption">Dua Kalimat Syahadat dalam Lambang Muhammadiyah</div>
+        </div>
+        <!-- Quiz sudah tertera di 2.3, tambahkan info -->
+        <div class="section-label">
+          <span class="sl-icon">📝</span>
+          <h4>Uji Pemahamanmu</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="quiz-row">
+          <a href="https://forms.gle/ubyekGknkyyh1xeE6" target="_blank" class="quiz-btn">
+            <span class="qicon">📝</span> Kuis Dua Kalimat Syahadat
+          </a>
+        </div>
+      </div>
+
+      <!-- SUBBAB 2.5 -->
+      <div class="subbab-section" id="sub2-5">
+        <div class="subbab-header">
+          <span class="subbab-num">Subbab 2.5</span>
+          <h3>Warna Hijau</h3>
+        </div>
+        <div class="materi-text">
+          <p>Warna hijau melambangkan <strong>pertumbuhan, kesejahteraan, dan kemajuan</strong>. Hijau juga identik dengan kesuburan, kehidupan, dan perkembangan masyarakat. Muhammadiyah menekankan bahwa setiap pendidikan dan amal sosial harus menumbuhkan masyarakat yang lebih cerdas, sehat, dan sejahtera.</p>
+          <p>Selain itu, hijau juga mencerminkan harapan dan keberlanjutan. Organisasi ini mengajarkan bahwa ilmu dan amal sosial yang ditanam hari ini akan menghasilkan generasi yang mampu membawa perubahan positif di masa depan. Pendidikan, pengajaran, dan kegiatan sosial di Muhammadiyah selalu diarahkan agar berdampak jangka panjang, bukan hanya untuk kepentingan sesaat.</p>
+        </div>
+        <!-- Gambar Full Width -->
+        <div class="img-full-wrapper">
+          <img src="https://i.ibb.co.com/nNq8ngPc/Chat-GPT-Image-May-30-2026-09-35-09-PM.png" alt="Warna Hijau dalam Lambang Muhammadiyah" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+          <div class="img-caption">Makna Warna Hijau dalam Lambang Muhammadiyah</div>
+        </div>
+        <!-- Quiz + Video Warna -->
+        <div class="section-label">
+          <span class="sl-icon">📝</span>
+          <h4>Uji Pemahamanmu</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="quiz-row">
+          <a href="https://forms.gle/JV7841jcDpUw3boH8" target="_blank" class="quiz-btn">
+            <span class="qicon">📝</span> Kuis Warna Lambang (Putih dan Hijau)
+          </a>
+        </div>
+        <div class="section-label" style="margin-top:1.2rem">
+          <span class="sl-icon">▶️</span>
+          <h4>Video Materi</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="resource-row">
+          <a href="https://youtube.com/shorts/i08okdV-b7s?feature=share" target="_blank" class="res-btn vid">
+            ▶️ Video Warna Lambang Muhammadiyah
+          </a>
+        </div>
+      </div>
+
+      <!-- SUBBAB 2.6 -->
+      <div class="subbab-section" id="sub2-6">
+        <div class="subbab-header">
+          <span class="subbab-num">Subbab 2.6</span>
+          <h3>Warna Putih</h3>
+        </div>
+        <div class="materi-text">
+          <p>Warna putih melambangkan <strong>kesucian, kebenaran, dan kejujuran</strong>. Putih mengingatkan anggota Muhammadiyah untuk selalu bersikap jujur, bersih hati, dan menegakkan kebenaran dalam setiap aspek kehidupan. Nilai ini menjadi pedoman moral dalam pendidikan, dakwah, dan amal sosial.</p>
+          <p>Dalam praktiknya, warna putih juga mengajarkan transparansi, integritas, dan akhlak mulia. Setiap anggota diingatkan bahwa tujuan organisasi bukan hanya prestasi atau status, tetapi membangun masyarakat yang bersih, beretika, dan beriman. Warna putih menyatukan semua simbol lambang Muhammadiyah sebagai representasi paduan ilmu, iman, dan amal, sehingga setiap langkah anggota selalu membawa manfaat bagi diri sendiri dan masyarakat.</p>
+        </div>
+        <!-- Gambar Full Width -->
+        <div class="img-full-wrapper">
+          <img src="https://i.ibb.co.com/6Jb7C5SN/Chat-GPT-Image-May-30-2026-09-40-38-PM.png" alt="Warna Putih dalam Lambang Muhammadiyah" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+          <div class="img-caption">Makna Warna Putih dalam Lambang Muhammadiyah</div>
+        </div>
+        <!-- Quiz -->
+        <div class="section-label">
+          <span class="sl-icon">📝</span>
+          <h4>Uji Pemahamanmu</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="quiz-row">
+          <a href="https://forms.gle/JV7841jcDpUw3boH8" target="_blank" class="quiz-btn">
+            <span class="qicon">📝</span> Kuis Warna Lambang (Putih dan Hijau)
+          </a>
+        </div>
+        <!-- Game Lambang -->
+        <div class="section-label" style="margin-top:1.2rem">
+          <span class="sl-icon">🎮</span>
+          <h4>Game Interaktif</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="resource-row">
+          <a href="https://gemini.google.com/share/b84c91531584" target="_blank" class="res-btn game">
+            🎮 Game Lambang Muhammadiyah
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BAB 3 ===================== -->
+    <section class="bab-section" id="bab3">
+      <div class="bab-header">
+        <div class="bab-label">BAB 3</div>
+        <h2>Organisasi Muhammadiyah</h2>
+        <p class="bab-desc">
+          Untuk mendukung visi dan misi Muhammadiyah dalam bidang pendidikan, sosial, dan pembinaan karakter, organisasi ini membentuk sejumlah lembaga dan organisasi kepemudaan yang khusus menangani kegiatan anak-anak dan remaja. Tujuan utama pembentukan organisasi-organisasi ini adalah untuk menyiapkan generasi muda yang tidak hanya cerdas secara akademik tetapi juga memiliki karakter kuat, disiplin, dan berakhlak mulia.
+          <br><br>
+          Untuk mendukung pendidikan, olahraga, dan kegiatan sosial bagi anak-anak dan remaja, Muhammadiyah membentuk organisasi kepemudaan dan bela diri. Salah satunya adalah <strong>Hizbul Wathan</strong> yang mengajarkan disiplin, kepemimpinan, dan semangat kebangsaan. Selain itu, ada <strong>Tapak Suci</strong> merupakan organisasi bela diri yang menekankan disiplin, kesehatan, dan akhlak baik. Melalui organisasi-organisasi ini, generasi muda diajarkan untuk aktif, bertanggung jawab, dan mampu berkontribusi positif bagi masyarakat.
+        </p>
+      </div>
+      <!-- Gambar Bab 3 Full Width -->
+      <div class="img-full-wrapper">
+        <img src="https://i.ibb.co.com/kVLzwvbh/Chat-GPT-Image-May-30-2026-09-15-10-PM.png" alt="Organisasi Muhammadiyah" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+        <div class="img-caption">Organisasi-organisasi dalam Muhammadiyah</div>
+      </div>
+
+      <!-- SUBBAB 3.1 -->
+      <div class="subbab-section" id="sub3-1">
+        <div class="subbab-header">
+          <span class="subbab-num">Subbab 3.1</span>
+          <h3>Hizbul Wathan (HW)</h3>
+        </div>
+        <div class="materi-text">
+          <p>Salah satu organisasi penting adalah <strong>Hizbul Wathan (HW)</strong>, yang berfokus pada pendidikan kepemimpinan, kedisiplinan, dan semangat kebangsaan. Melalui HW, peserta didik belajar bekerja sama, memimpin, dan menghargai nilai-nilai persaudaraan. Kegiatan dalam HW dirancang agar anak-anak dan remaja dapat mengembangkan kemampuan berpikir kritis, bertanggung jawab terhadap diri sendiri dan kelompok, serta memupuk rasa cinta tanah air. HW tidak hanya membekali peserta dengan pengetahuan teori, tetapi juga praktik kepemimpinan melalui kegiatan outdoor, perkemahan, dan proyek sosial yang nyata.</p>
+          <p>Melalui kegiatan-kegiatan seperti latihan fisik, pelatihan kepemimpinan, simulasi tanggung jawab sosial, serta kegiatan kemasyarakatan, anggota Hizbul Wathan belajar untuk mengembangkan kemampuan diri secara seimbang antara fisik, mental, dan spiritual. Setiap kegiatan dirancang untuk mengajarkan nilai tanggung jawab, disiplin, integritas, dan kepemimpinan yang berlandaskan prinsip Islam.</p>
+          <p>Lebih jauh, Hizbul Wathan juga menekankan pemahaman tentang nilai-nilai Islam dalam kehidupan sehari-hari. Anggota diajarkan untuk menjadi pemuda yang bisa memimpin diri sendiri, memimpin kelompok, dan berkontribusi positif bagi masyarakat, sehingga pendidikan karakter yang diberikan bersifat praktis dan aplikatif. Filosofi organisasi ini adalah bahwa pemuda yang cerdas, disiplin, dan berakhlak mulia akan menjadi penerus bangsa yang mampu membawa perubahan positif.</p>
+        </div>
+        <!-- Gambar Full Width -->
+        <div class="img-full-wrapper">
+          <img src="https://i.ibb.co.com/Cp6NcKnL/Chat-GPT-Image-May-29-2026-12-50-42-PM.png" alt="Hizbul Wathan" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+          <div class="img-caption">Organisasi Hizbul Wathan (HW)</div>
+        </div>
+        <!-- Gambar Komik/Petualangan HW -->
+        <div class="section-label">
+          <span class="sl-icon">📖</span>
+          <h4>Petualangan Jagoan HW</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:1.5rem">
+          <div class="img-full-wrapper" style="">
+            <img src="https://i.ibb.co.com/1fMy0fQQ/Petualangan-Jagoan-HW-page-0001.jpg" alt="Petualangan Jagoan HW Halaman 1" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+            <div class="img-caption">Petualangan Jagoan HW – Halaman 1</div>
+          </div>
+          <div class="img-full-wrapper">
+            <img src="https://i.ibb.co.com/9HWj79hn/Petualangan-Jagoan-HW-page-0002.jpg" alt="Petualangan Jagoan HW Halaman 2" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+            <div class="img-caption">Petualangan Jagoan HW – Halaman 2</div>
+          </div>
+        </div>
+        <!-- Quiz + Video + Game HW -->
+        <div class="section-label">
+          <span class="sl-icon">📝</span>
+          <h4>Uji Pemahamanmu</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="quiz-row">
+          <a href="https://forms.gle/k7KxfQGRDr7Gym2y5" target="_blank" class="quiz-btn">
+            <span class="qicon">📝</span> Kuis Hizbul Wathan
+          </a>
+        </div>
+        <div class="section-label" style="margin-top:1.2rem">
+          <span class="sl-icon">▶️</span>
+          <h4>Video & Game</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="resource-row">
+          <a href="https://youtube.com/shorts/094yk5DDK8A?feature=share" target="_blank" class="res-btn vid">
+            ▶️ Video Hizbul Wathan
+          </a>
+          <a href="https://gemini.google.com/share/04aea8da34fa" target="_blank" class="res-btn game">
+            🎮 Game HW
+          </a>
+        </div>
+      </div>
+
+      <!-- SUBBAB 3.2 -->
+      <div class="subbab-section" id="sub3-2">
+        <div class="subbab-header">
+          <span class="subbab-num">Subbab 3.2</span>
+          <h3>Tapak Suci</h3>
+        </div>
+        <div class="materi-text">
+          <p><strong>Tapak Suci</strong> adalah organisasi bela diri Muhammadiyah yang menekankan pengembangan fisik, mental, dan moral anggota. Selain melatih kemampuan bela diri, Tapak Suci bertujuan membentuk karakter kuat, ketahanan mental, dan etika Islami bagi para anggotanya.</p>
+          <p>Latihan Tapak Suci tidak hanya fokus pada keterampilan fisik, tetapi juga pada pengendalian diri, disiplin, keberanian, dan kepedulian sosial. Organisasi ini mengajarkan bahwa kemampuan fisik harus sejalan dengan akhlak dan prinsip moral Islam, sehingga anggota menjadi tangguh secara jasmani sekaligus mulia secara akhlak.</p>
+          <p>Melalui Tapak Suci, anggota didorong untuk menjadi individu yang siap memberi manfaat bagi keluarga, masyarakat, dan bangsa. Filosofi ini menekankan bahwa bela diri bukan sekadar pertahanan diri, tetapi alat pendidikan karakter, pembentukan kepemimpinan, dan sarana pengabdian sosial. Organisasi ini juga menjadi sarana bagi generasi muda untuk menumbuhkan rasa tanggung jawab, kesadaran spiritual, dan semangat kebangsaan.</p>
+          <p>Melalui kedua organisasi ini, generasi muda Muhammadiyah dibina agar menjadi individu yang aktif, bertanggung jawab, dan memiliki kontribusi positif bagi masyarakat. Kegiatan-kegiatan yang dilakukan tidak sekadar olahraga atau pelatihan fisik, tetapi juga pendidikan karakter, pengembangan keterampilan sosial, dan penguatan iman. Dengan demikian, anak-anak dan remaja yang tergabung dalam organisasi Muhammadiyah dipersiapkan menjadi warga negara yang cerdas, berakhlak mulia, dan siap menghadapi tantangan zaman, sembari tetap memegang nilai-nilai Islam dan semangat kemanusiaan.</p>
+          <p>Secara keseluruhan, organisasi-organisasi ini berperan penting dalam membentuk generasi penerus yang seimbang antara kemampuan intelektual, fisik, sosial, dan spiritual, sehingga visi Muhammadiyah untuk mencerdaskan dan memberdayakan umat dapat tercapai dengan baik.</p>
+        </div>
+        <!-- Gambar Full Width -->
+        <div class="img-full-wrapper">
+          <img src="https://i.ibb.co.com/Df69SK1D/Chat-GPT-Image-May-29-2026-12-55-56-PM.png" alt="Tapak Suci" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+          <div class="img-caption">Organisasi Tapak Suci Muhammadiyah</div>
+        </div>
+        <!-- Quiz + Video + Game Tapak Suci -->
+        <div class="section-label">
+          <span class="sl-icon">📝</span>
+          <h4>Uji Pemahamanmu</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="quiz-row">
+          <a href="https://forms.gle/Zr4by81ypPeWPikv6" target="_blank" class="quiz-btn">
+            <span class="qicon">📝</span> Kuis Tapak Suci
+          </a>
+        </div>
+        <div class="section-label" style="margin-top:1.2rem">
+          <span class="sl-icon">▶️</span>
+          <h4>Video & Game</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="resource-row">
+          <a href="https://youtube.com/shorts/5BIN2QwM5RM?feature=share" target="_blank" class="res-btn vid">
+            ▶️ Video Tapak Suci
+          </a>
+          <a href="https://gemini.google.com/share/699d49382af5" target="_blank" class="res-btn game">
+            🎮 Game Tapak Suci
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BAB 4 ===================== -->
+    <section class="bab-section" id="bab4">
+      <div class="bab-header">
+        <div class="bab-label">BAB 4</div>
+        <h2>Pahlawan Muhammadiyah</h2>
+        <p class="bab-desc">
+          Beberapa tokoh penting dalam sejarah Muhammadiyah adalah <strong>K.H. Ahmad Dahlan</strong> dan <strong>Siti Walidah</strong>. K.H. Ahmad Dahlan dikenal sebagai pendiri Muhammadiyah yang memajukan pendidikan Islam di Indonesia melalui sekolah, kegiatan sosial, dan dakwah. Siti Walidah membantu mendirikan organisasi perempuan 'Aisyiyah, memberdayakan perempuan, dan berperan aktif dalam pendidikan dan kegiatan sosial. Kontribusi mereka menjadi fondasi penting bagi perkembangan Muhammadiyah dan pengaruhnya di masyarakat Indonesia.
+        </p>
+      </div>
+      <!-- Gambar Bab 4 Full Width -->
+      <div class="img-full-wrapper">
+        <img src="https://i.ibb.co.com/LzwmQhsm/jpg-Kweekschool.jpg" alt="Pahlawan Muhammadiyah" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+        <div class="img-caption">Pahlawan-Pahlawan Muhammadiyah</div>
+      </div>
+
+      <!-- SUBBAB 4.1 -->
+      <div class="subbab-section" id="sub4-1">
+        <div class="subbab-header">
+          <span class="subbab-num">Subbab 4.1</span>
+          <h3>K.H. Ahmad Dahlan</h3>
+        </div>
+        <div class="materi-text">
+          <p><strong>K.H. Ahmad Dahlan (1868–1923)</strong> adalah pendiri Muhammadiyah yang memajukan pendidikan Islam di Indonesia. Beliau dikenal sebagai tokoh reformis yang berupaya memperbarui cara belajar dan mengamalkan ajaran Islam agar lebih rasional, praktis, dan sesuai kebutuhan masyarakat pada masa itu.</p>
+          <p>Selain mendirikan Muhammadiyah pada tahun 1912, beliau juga membentuk sekolah, madrasah, dan lembaga pendidikan yang mengintegrasikan ilmu agama dan umum. Pendekatan ini memungkinkan generasi muda memperoleh pendidikan yang seimbang antara pengetahuan dunia dan spiritualitas, sekaligus membentuk karakter yang kuat, berakhlak mulia, dan siap berkontribusi bagi masyarakat.</p>
+          <p>K.H. Ahmad Dahlan juga memperkenalkan kegiatan sosial dan dakwah berbasis pendidikan, seperti pembinaan kesehatan masyarakat, pelayanan sosial untuk fakir miskin, dan pengembangan amal usaha Muhammadiyah. Beliau menekankan pentingnya meneladani akhlak Nabi Muhammad SAW dalam kehidupan sehari-hari, sehingga pendidikan tidak hanya sebatas transfer ilmu, tetapi juga pembentukan moral, etika, dan kepedulian sosial.</p>
+          <p>Filosofi beliau menekankan bahwa pembaruan Islam harus berpijak pada Al-Qur'an dan As-Sunnah, namun tetap relevan dengan perkembangan masyarakat. Generasi yang dididik Muhammadiyah diharapkan mampu menjadi teladan bagi lingkungan, mampu berpikir kritis, dan memajukan bangsa melalui pendidikan, amal sosial, dan integritas pribadi.</p>
+        </div>
+        <!-- Gambar Full Width -->
+        <div class="img-full-wrapper">
+          <img src="https://i.ibb.co.com/dsXSBpS1/Chat-GPT-Image-May-29-2026-05-22-37-PM.png" alt="K.H. Ahmad Dahlan" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+          <div class="img-caption">K.H. Ahmad Dahlan – Pendiri Muhammadiyah</div>
+        </div>
+        <!-- Quiz + Video K.H. Ahmad Dahlan -->
+        <div class="section-label">
+          <span class="sl-icon">📝</span>
+          <h4>Uji Pemahamanmu</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="quiz-row">
+          <a href="https://forms.gle/jPwjR35uSJuiPMzz6" target="_blank" class="quiz-btn">
+            <span class="qicon">📝</span> Kuis K.H. Ahmad Dahlan
+          </a>
+        </div>
+        <div class="section-label" style="margin-top:1.2rem">
+          <span class="sl-icon">▶️</span>
+          <h4>Video Materi</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="resource-row">
+          <a href="https://youtube.com/shorts/ML-dgNqc6lo?feature=share" target="_blank" class="res-btn vid">
+            ▶️ Video K.H. Ahmad Dahlan
+          </a>
+        </div>
+      </div>
+
+      <!-- SUBBAB 4.2 -->
+      <div class="subbab-section" id="sub4-2">
+        <div class="subbab-header">
+          <span class="subbab-num">Subbab 4.2</span>
+          <h3>Siti Walidah</h3>
+        </div>
+        <div class="materi-text">
+          <p><strong>Siti Walidah</strong> adalah pendamping dan rekan K.H. Ahmad Dahlan dalam mendirikan Muhammadiyah, terutama organisasi perempuan <strong>'Aisyiyah</strong>. Beliau memainkan peran penting dalam memberdayakan perempuan melalui pendidikan, pembinaan moral, dan kegiatan sosial.</p>
+          <p>Melalui upayanya, perempuan diberikan kesempatan untuk belajar, mengembangkan keterampilan, dan aktif berkontribusi dalam keluarga maupun masyarakat. Siti Walidah dikenal sebagai sosok tangguh, bijaksana, dan peduli terhadap kemajuan pendidikan Islam. Ia menekankan bahwa perempuan memiliki peran strategis dalam pembangunan bangsa dan pengembangan umat, terutama melalui pendidikan anak-anak dan partisipasi sosial.</p>
+          <p>Dalam praktiknya, Siti Walidah mengajarkan pentingnya integritas, ketekunan, dan akhlak mulia. Pendidikan yang beliau dorong tidak hanya meningkatkan pengetahuan, tetapi juga membentuk karakter perempuan agar mandiri, peduli sesama, dan siap menjadi agen perubahan di masyarakat. Kontribusinya menjadi contoh nyata bagaimana perempuan dapat berperan aktif dalam pembangunan sosial, pendidikan, dan kemajuan umat Islam.</p>
+          <p>Melalui perjuangan dan dedikasi kedua tokoh ini, Muhammadiyah berhasil membangun landasan organisasi yang kuat, berorientasi pada pendidikan berkualitas, pemberdayaan masyarakat, dan penguatan moral serta spiritual. Pengaruh mereka tidak hanya dirasakan oleh anggota Muhammadiyah, tetapi juga masyarakat luas, karena nilai-nilai yang mereka tanamkan menjadi pedoman dalam pendidikan, pengembangan sosial, dan dakwah Islam di Indonesia.</p>
+          <p>Dengan memahami peran K.H. Ahmad Dahlan dan Siti Walidah, peserta didik dapat meneladani semangat kepemimpinan, dedikasi, dan pengabdian kepada masyarakat. Materi ini juga menekankan pentingnya integrasi antara ilmu, iman, dan amal sosial sebagai fondasi bagi generasi muda yang berkarakter, berpengetahuan, dan peduli terhadap lingkungan sosial serta keberlanjutan masyarakat.</p>
+        </div>
+        <!-- Gambar Full Width -->
+        <div class="img-full-wrapper">
+          <img src="https://i.ibb.co.com/84SZVD33/Chat-GPT-Image-May-30-2026-08-28-06-PM.png" alt="Siti Walidah" onerror="this.style.background='#1e4472';this.style.minHeight='200px'">
+          <div class="img-caption">Siti Walidah – Pelopor Perempuan Muhammadiyah</div>
+        </div>
+        <!-- Quiz + Video + Game Tokoh -->
+        <div class="section-label">
+          <span class="sl-icon">📝</span>
+          <h4>Uji Pemahamanmu</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="quiz-row">
+          <a href="https://forms.gle/pL6kiskMYCZLW1Tr5" target="_blank" class="quiz-btn">
+            <span class="qicon">📝</span> Kuis Siti Walidah
+          </a>
+        </div>
+        <div class="section-label" style="margin-top:1.2rem">
+          <span class="sl-icon">▶️</span>
+          <h4>Video & Game</h4>
+          <div class="sl-divider"></div>
+        </div>
+        <div class="resource-row">
+          <a href="https://youtube.com/shorts/55G3m35tNbU?feature=share" target="_blank" class="res-btn vid">
+            ▶️ Video Siti Walidah
+          </a>
+          <a href="https://gemini.google.com/share/b22ee6e54444" target="_blank" class="res-btn game">
+            🎮 Game Tokoh Muhammadiyah
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="belajar-footer">
+      <p>© 2026 <span>Pusaka MASTiF</span> – Kelas A / Pendidikan Agama Islam</p>
+      <p style="margin-top:4px">Belajar sejarah dengan cara menyenangkan bersama Pusaka MASTiF 🌟</p>
+    </footer>
+
+  </main>
+</div>
+
+<!-- TOMBOL SIDEBAR MOBILE -->
+<button class="mobile-sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()" aria-label="Buka menu materi">☰</button>
+
+<script>
+  // ===== TOGGLE SIDEBAR MOBILE =====
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('open');
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('open');
+  }
+
+  // ===== TOGGLE BAB DI SIDEBAR =====
+  function toggleBab(btn) {
+    const targetId = btn.getAttribute('data-target');
+    const list = document.getElementById(targetId);
+    const arrow = btn.querySelector('.arrow');
+    list.classList.toggle('open');
+    btn.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+
+  // ===== PROGRESS BAR SCROLL =====
+  const contentArea = document.getElementById('contentArea');
+  const progressBar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    progressBar.style.width = progress + '%';
+  });
+
+  // ===== SMOOTH SCROLL UNTUK LINK SIDEBAR =====
+  document.querySelectorAll('.subbab-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Tutup sidebar di mobile
+          if (window.innerWidth <= 900) closeSidebar();
+        }
+      }
+    });
+  });
+
+  // ===== FALLBACK GAMBAR GAGAL DIMUAT =====
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', function() {
+      this.style.background = '#1e4472';
+      this.style.minHeight = '120px';
+      this.style.display = 'block';
+    });
+  });
+
+  // ===== ANIMASI MASUK SAAT SCROLL =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.subbab-section, .bab-header').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
